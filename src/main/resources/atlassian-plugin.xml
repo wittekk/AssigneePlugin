@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+  <plugin-info>
+    <description>${project.description}</description>
+    <version>${project.version}</version>
+    <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+    <param name="plugin-icon">images/pluginIcon.png</param>
+    <param name="plugin-logo">images/pluginLogo.png</param>
+  </plugin-info>
+  <!-- add our i18n resource -->
+  <resource type="i18n" name="i18n" location="AssigneePlugin"/>
+  <!-- add our web resources -->
+  <web-resource key="AssigneePlugin-resources" name="AssigneePlugin Web Resources">
+    <dependency>com.atlassian.auiplugin:ajs</dependency>
+    <resource type="download" name="AssigneePlugin.css" location="/css/AssigneePlugin.css"/>
+    <resource type="download" name="AssigneePlugin.js" location="/js/AssigneePlugin.js"/>
+    <resource type="download" name="images/" location="/images"/>
+    <context>AssigneePlugin</context>
+  </web-resource>
+  <web-section name="ItemsSection" i18n-name-key="items-section.name" key="items-section" location="my-item-link" weight="1000">
+    <description key="items-section.description">The ItemsSection Plugin</description>
+  </web-section>
+  <web-item name="Item" i18n-name-key="item.name" key="item" section="system.top.navigation.bar" weight="1000">
+    <description key="item.description">The Item Plugin</description>
+    <label key="item.label"/>
+    <link linkId="item-link">/plugins/servlet/assignee</link>
+  </web-item>
+  <servlet name="Assignee Servlet" i18n-name-key="assignee-servlet.name" key="assignee-servlet" class="com.evercode.servlet.AssigneeServlet">
+    <description key="assignee-servlet.description">The Assignee Servlet Plugin</description>
+    <url-pattern>/assignee</url-pattern>
+  </servlet>
+</atlassian-plugin>

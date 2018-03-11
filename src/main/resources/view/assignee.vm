@@ -1,0 +1,20 @@
+<html>
+<head>
+    <title>Assignee form</title>
+    <meta name="decorator" content="atl.admin">
+</head>
+<body>
+<form id="assignee-form" class="aui" action="assignee" method="POST">
+    <div class="field-group">
+        <label for="assignee-input">Assignee</label>
+        <textarea class="textarea" name="assignee-input"
+                  id="assignee-input" placeholder="Issue or group separated by commas..."></textarea>
+    </div>
+    <div class="buttons-container">
+        <div class="buttons">
+            <input class="button submit" value="Pokaż" id="assignee-save" type="submit">
+        </div>
+    </div>
+</form>
+</body>
+</html>
